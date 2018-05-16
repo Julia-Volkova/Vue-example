@@ -5,7 +5,7 @@
     </div>
     <hr>
     <div class="row">
-      <list-info-servers></list-info-servers>
+      <servers></servers>
       <servers-details></servers-details>
     </div>
     <hr>
@@ -17,15 +17,15 @@
 
 <script>
   // Locally components, only for App.vue
-  import HeaderServer from './Header.vue';
-  import ListInfo from './ListInfo.vue';
-  import ServersDetails from './ServersDetails.vue';
-  import FooterServer from './Footer.vue';
+  import HeaderServer from './components/Shared/Header.vue';
+  import Servers from './components/Server/Servers.vue';
+  import ServersDetails from './components/Server/ServersDetails.vue';
+  import FooterServer from './components/Shared/Footer.vue';
 
   export default {
     components: {
       'header-server': HeaderServer,
-      'list-info-servers': ListInfo,
+      'servers': Servers,
       'servers-details': ServersDetails,
       'footer-server': FooterServer
     }

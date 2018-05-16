@@ -13,3 +13,9 @@
     }
   }
 </script>
+
+<style scoped>
+  div {
+    border: 1px solid red;
+  }
+</style>
