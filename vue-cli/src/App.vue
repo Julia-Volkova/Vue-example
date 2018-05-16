@@ -1,5 +1,12 @@
 <template>
-  <h1>Hello World! Like this)</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <h1>Components</h1>
+
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
