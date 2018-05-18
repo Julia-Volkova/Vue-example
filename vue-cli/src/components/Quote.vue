@@ -1,6 +1,13 @@
 <template>
   <div>
-   <slot></slot>
+   <div class="title">
+     <slot name="title"></slot>
+     <span style="color: #ccc;"><slot name="subtitle">Subtitle</slot></span>
+   </div>
+    <hr>
+    <div>
+      <slot name="content"></slot>
+    </div>
   </div>
 </template>
 
@@ -19,6 +26,9 @@
     text-align: center;
   }
   h2 {
-    color: cornflowerblue;
+    color: red;
+  }
+  .title {
+    font-style: italic;
   }
 </style>
