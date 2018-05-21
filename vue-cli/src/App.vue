@@ -1,41 +1,45 @@
 <template>
   <div class="container">
+    <app-header :quoteCount="quotes.length" :maxQuotes="maxQuotes"></app-header>
+    <app-new-quote @quoteAdded="newQuote"></app-new-quote>
+    <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>
     <div class="row">
-      <div class="col-xs-12">
-        <br>
-        <button @click="currentTemplate = 'app-blue'" class="btn btn-primary">Load Blue Template</button>
-        <button @click="currentTemplate = 'app-green'" class="btn btn-success">Load Green Template</button>
-        <button @click="currentTemplate = 'app-red'" class="btn btn-danger">Load Red Template</button>
-        <hr>
-        <keep-alive>
-          <component :is="currentTemplate">
-              <h2 slot="blue">Hello) I'm a text from blue template)</h2>
-
-              <h2 slot="green">Hello) I'm a text from green template)</h2>
-
-              <h2 slot="red">Hello) I'm a text from red template)</h2>
-          </component>
-        </keep-alive>
+      <div class="col-sm-12 text-center">
+        <div class="alert alert-info">Info: Click on a Quote to delete it!</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import Blue from './components/Blue.vue';
-  import Green from './components/Green.vue';
-  import Red from './components/Red.vue';
+  import QuoteGrid from './components/QuoteGrid.vue';
+  import NewQuote from './components/NewQuote.vue';
+  import Header from './components/Header.vue';
 
   export default {
     data: function () {
       return {
-        currentTemplate: 'app-blue'
+        quotes: [
+          'Just a quote to see something'
+        ],
+        maxQuotes: 10
+      }
+    },
+    methods: {
+      newQuote(quote) {
+        if (this.quotes.length >= 10) {
+          return alert('Please delete Quotes first!)');
+        }
+        this.quotes.push(quote);
+      },
+      deleteQuote(index) {
+        this.quotes.splice(index, 1);
       }
     },
     components: {
-      'app-blue': Blue,
-      'app-green': Green,
-      'app-red': Red
+      'app-quote-grid': QuoteGrid,
+      'app-new-quote': NewQuote,
+      'app-header': Header
     }
   }
 </script>
