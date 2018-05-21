@@ -2,39 +2,40 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <button @click="selectedComponent = 'app-quote'">Quote</button>
-        <button @click="selectedComponent = 'app-author'">Author</button>
-        <button @click="selectedComponent = 'app-new'">New</button>
+        <br>
+        <button @click="currentTemplate = 'app-blue'" class="btn btn-primary">Load Blue Template</button>
+        <button @click="currentTemplate = 'app-green'" class="btn btn-success">Load Green Template</button>
+        <button @click="currentTemplate = 'app-red'" class="btn btn-danger">Load Red Template</button>
         <hr>
-        <p>{{ selectedComponent }}</p>
         <keep-alive>
-          <component :is="selectedComponent"></component>
+          <component :is="currentTemplate">
+              <h2 slot="blue">Hello) I'm a text from blue template)</h2>
+
+              <h2 slot="green">Hello) I'm a text from green template)</h2>
+
+              <h2 slot="red">Hello) I'm a text from red template)</h2>
+          </component>
         </keep-alive>
-        <!--<app-quote>-->
-        <!--<h2 slot="title">{{ quoteTitle }}</h2>-->
-        <!--<p slot="content">A wondeful Quote</p>-->
-        <!--</app-quote>-->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import Quote from './components/Quote.vue';
-  import Author from './components/Author.vue';
-  import New from './components/New.vue';
+  import Blue from './components/Blue.vue';
+  import Green from './components/Green.vue';
+  import Red from './components/Red.vue';
 
   export default {
     data: function () {
       return {
-        quoteTitle: 'The Quote',
-        selectedComponent: 'app-quote'
+        currentTemplate: 'app-blue'
       }
     },
     components: {
-      'app-quote': Quote,
-      'app-author': Author,
-      'app-new': New
+      'app-blue': Blue,
+      'app-green': Green,
+      'app-red': Red
     }
   }
 </script>
