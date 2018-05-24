@@ -1,26 +1,32 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
-        <app-user></app-user>
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <h1>Filters & Mixins</h1>
+        <p>{{ text | toUppercase | to-lowercase }}</p>
+        <hr>
+        <input type="text" v-model="filterText">
+        <ul>
+          <li v-for="fruit in fruits">{{ fruit }}</li>
+        </ul>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import User from './components/User.vue';
-
   export default {
-    components: {
-      'app-user': User
+    data() {
+      return {
+        text: 'Hello there!',
+        fruits: ['Apple', 'Banana', 'Mango', 'Melon'],
+        filterText: ''
+      }
+    },
+    filters: {
+      toUppercase(value) {
+        return value.toUpperCase();
+      }
     }
   }
 </script>
-
-<style>
-  div.component {
-    border: 1px solid black;
-    padding: 30px;
-  }
-</style>
