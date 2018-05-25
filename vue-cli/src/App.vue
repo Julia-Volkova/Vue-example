@@ -7,7 +7,7 @@
         <hr>
         <input type="text" v-model="filterText">
         <ul>
-          <li v-for="fruit in fruits">{{ fruit }}</li>
+          <li v-for="fruit in filteredFruits">{{ fruit }}</li>
         </ul>
       </div>
     </div>
@@ -27,6 +27,13 @@
       toUppercase(value) {
         return value.toUpperCase();
       }
+    },
+    computed: {
+        filteredFruits() {
+            return this.fruits.filter((element) => {
+                return element.match(this.filterText);
+            });
+        }
     }
   }
 </script>
