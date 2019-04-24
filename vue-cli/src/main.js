@@ -7,6 +7,7 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({
   routes: routes,
+  mode: 'history', // no hash tag in url
 });
 
 new Vue({
