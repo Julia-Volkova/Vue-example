@@ -20,6 +20,11 @@
           hash: '#data',
         }
       }
-    }
+    },
+    beforeRouteEnter(to, from, next) {
+      next(vm => {
+        vm.link;
+      });
+    },
   }
 </script>
